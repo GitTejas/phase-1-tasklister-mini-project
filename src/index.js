@@ -1,24 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
-  let form = document.getElementById('create-task-form')
-  form.addEventListener('submit', (e) => {
-      e.preventDefault()
-      buildToDo(e.target.create_item.value)
-      form.reset()
-  })
-})
+const tasks=[]
 
-
-function buildToDo(todo){
-  console.log(todo)
-  let list = document.createElement('li')
-  let btn = document.createElement("button")
-  btn.addEventListener('click', handleDelete)
-  btn.textContent = 'x'
-  p.textContent = `${todo} `
-  p.appendChild(btn)
-  console.log(p)
-  document.querySelector('#list').appendChild(p)
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const toDo = document.querySelector('#new-task-description')
+      if (toDo.value !== ""){
+        
+        tasks.push(toDo.value)
+        let list = document.createElement('li')
+        let btn = document.createElement('button')
+        btn.addEventListener('click', handleDelete)
+        btn.innerHTML = 'X'
+        
+        list.innerHTML = toDo.value
+        let item = document.querySelector('#list #tasks')
+        console.log(tasks)
+        item.appendChild(list)
+        list.appendChild(btn)
+        toDo.value = ''
+      }
+  });
+  
+});
 
 function handleDelete(e){
   e.target.parentNode.remove()
