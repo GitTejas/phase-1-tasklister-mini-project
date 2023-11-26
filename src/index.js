@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let list = document.createElement('li')
         let btn = document.createElement('button')
         btn.addEventListener('click', handleDelete)
-        btn.innerHTML = 'X'
+        btn.textContent = 'X'
         
-        list.innerHTML = toDo.value
+        list.textContent = toDo.value
         let item = document.querySelector('#list #tasks')
         console.log(tasks)
         item.appendChild(list)
